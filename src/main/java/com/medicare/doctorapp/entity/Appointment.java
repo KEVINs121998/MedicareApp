@@ -1,5 +1,6 @@
 package com.medicare.doctorapp.entity;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 import com.medicare.doctorapp.enums.AppointmentStatus;
@@ -19,6 +20,7 @@ public class Appointment {
 	@JoinColumn(name="doctor_id",nullable=false)
 	private Doctor doctor;
 	private LocalTime appointmentTime;
+	private LocalDate appointmentDate;
 	private String reason;
 	@Enumerated(EnumType.STRING)
 	private AppointmentStatus status=AppointmentStatus.PENDING;
@@ -57,6 +59,12 @@ public class Appointment {
 	}
 	public void setStatus(AppointmentStatus status) {
 		this.status = status;
+	}
+	public LocalDate getAppointmentDate() {
+		return appointmentDate;
+	}
+	public void setAppointmentDate(LocalDate appointmentDate) {
+		this.appointmentDate = appointmentDate;
 	}
 	
 }
