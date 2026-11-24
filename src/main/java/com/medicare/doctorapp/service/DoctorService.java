@@ -57,4 +57,13 @@ public class DoctorService {
 
         return doctorRepository.save(doctor);
     }
+    
+ // Search Doctors by Specialization
+    public List<Doctor> searchDoctorsBySpecialization(String specialization) {
+        return doctorRepository.findBySpecializationIgnoreCaseAndActiveTrue(specialization);
+    }
+ // Search Doctors by Location
+    public List<Doctor> searchDoctorsByLocation(String location) {
+        return doctorRepository.findByLocationIgnoreCaseAndActiveTrue(location);
+}
 }

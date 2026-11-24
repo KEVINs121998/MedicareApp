@@ -51,4 +51,18 @@ public class DoctorController {
     public Doctor deactivateDoctor(@PathVariable Long id) {
         return doctorService.deactivateDoctor(id);
     }
+    
+ // Search Doctors by Specialization
+    @GetMapping("/search")
+    public List<Doctor> searchDoctors(
+            @RequestParam("specialization") String specialization) {
+
+        return doctorService.searchDoctorsBySpecialization(specialization);
+    }
+    
+ // Search Doctors by Location
+    @GetMapping("/location")
+    public List<Doctor> searchDoctorsByLocation(@RequestParam("location") String location) {
+        return doctorService.searchDoctorsByLocation(location);
+    }
 }
